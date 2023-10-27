@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {            
+            transition: background-color 0.5s ease;
+        }
+        .form{
+            border-style: solid;
+            padding: 20px;
+        }
+        /* Add any additional CSS styles here */
+    </style>
+    <title>Background Color Changer</title>
+</head>
+<body>
+    <form id="myForm" class="form">
+        <fieldset>
+        <legend>Personalia</legend>
+        First Name:<br><input type="text"><br><br>
+    Last Name:<br><input type="text"><br><br>
+    Gender:<br><input type ="radio"><label>Male</label><input type="radio"><label>Female</label><br><br>
+    Email:<br><input type="text"><br><br>
+    Password:<br><input type="text"><br><br>
+    <button>SUBMIT</button>
+    <button>RESET</button>
+    </fieldset>
+    </form>
+    <script>
+        function changeBgColor(){
+            const form=document.getElementById('myForm')
+            form.style.background = getRandomColor();
+            setTimeout(changeBgColor, 1000);
+        }
+
+        function getRandomColor(){
+            const LIMIT_VALUE = 256;
+            let red = getRandomValue(LIMIT_VALUE);
+            let green = getRandomValue(LIMIT_VALUE);
+            let blue = getRandomValue(LIMIT_VALUE);
+            return 'rgb(' + red + ',' + green + ',' + blue + ')';
+        }
+
+        function getRandomValue(limitValue){
+            let randomNumber = Math.random() * limitValue;
+            randomNumber = Math.floor(randomNumber);
+            return randomNumber;
+        }
+
+        changeBgColor();
+    </script>
+</body>
+</html>
